@@ -1,0 +1,22 @@
+4. Varie o parâmetro de frequência de corte no filtro passa-baixa criado na tarefa 2. Por exemplo, tome valores de D0 iguais a 0,01, 0,05, 0,5. A imagem inicial é igual à anterior. Visualize as imagens dos filtros e as imagens resultantes. Explique os resultados.
+
+Resultados e Explicações
+D0 = 0.01: O filtro passa-baixa ideal com uma frequência de corte muito baixa atenuará todas as frequências mais altas, resultando em uma imagem muito suave. O detalhe do quadrado pode ser perdido, pois o filtro irá suavizar as bordas.
+D0 = 0.05: Com uma frequência de corte um pouco mais alta, o filtro permitirá a passagem de algumas frequências mais altas, preservando mais detalhes na imagem filtrada em comparação com 𝐷0=0.01
+D0 = 0.5: Um valor de frequência de corte maior permitirá a passagem de uma maior gama de frequências, resultando em uma imagem que retém mais detalhes e características da imagem original, mas ainda suavizada.
+
+5. Efetue o mesmo que se pede no item 4, mas use o filtro passa-alta em vez do filtro passa-baixa.
+
+Resultados e Explicações
+D0 = 0.01: O filtro atenuará quase todas as frequências, e a imagem resultante mostrará um nível de ruído muito alto, pois quase nada está passando.
+D0 = 0.05: Com uma frequência de corte um pouco mais alta, a imagem resultante mostrará detalhes mais nítidos, mas ainda pode haver algum nível de suavização.
+D0 = 0.5: Este filtro permitirá a passagem de muitas frequências altas, destacando bordas e detalhes, resultando em uma imagem que pode parecer mais "nítida" e com alto contraste.
+
+6. Além dos filtros passa-baixa e passa-alta também existe o filtro passa-banda? Explique seu funcionamento e aplique um filtro passa-banda na imagem.
+
+Um filtro passa-banda permite que frequências dentro de um determinado intervalo passem, enquanto atenua frequências fora desse intervalo. Os filtros passa-banda podem ser criados combinando filtros passa-baixa e passa-alta.
+
+Funcionamento do Filtro Passa-Banda
+O filtro passa-banda atenua todas as frequências fora do intervalo definido. É útil em aplicações como a remoção de ruídos em sinais e na detecção de características em imagens, permitindo destacar certos padrões ou texturas.
+
+aaaa

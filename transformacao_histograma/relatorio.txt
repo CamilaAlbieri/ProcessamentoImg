@@ -1,0 +1,51 @@
+#Elaborar relatório explicando a implementação de cada transformação e qual foi o efeito na imagem.
+
+Relatório: Implementação de Transformações de Imagem e seus Efeitos
+Introdução
+Este relatório apresenta a implementação de diversas técnicas de processamento de imagens aplicadas à imagem Lena em escala de cinza. Foram exploradas três abordagens de equalização de histograma, sendo elas: equalização manual, equalização usando OpenCV e equalização usando a biblioteca Pillow. Além disso, a imagem original foi comparada com as versões transformadas para analisar os efeitos de cada técnica. A imagem usada para os testes foi a famosa "Lena" com resolução de 512x512 pixels.
+
+Objetivo
+O objetivo é comparar os resultados das diferentes técnicas de equalização de histograma, analisar seus efeitos na imagem original, e descrever o comportamento de cada transformação aplicada.
+
+1. Equalização de Histograma Manual
+Descrição da Implementação:
+Na equalização de histograma manual, a transformação foi implementada a partir dos seguintes passos:
+
+Cálculo do histograma: O histograma da imagem foi calculado contando o número de pixels para cada nível de intensidade (0 a 255).
+Função de Distribuição Cumulativa (CDF): A CDF foi calculada para redistribuir os valores de intensidade de pixel na imagem, melhorando o contraste.
+Interpolação: Usamos a função np.interp() para realizar a equalização dos valores da imagem, mapeando os valores de intensidade originais para os novos valores baseados na CDF normalizada.
+Reconstrução da imagem: A imagem foi reconstruída a partir dos novos valores de intensidade.
+Efeito na Imagem:
+A equalização de histograma manual melhorou consideravelmente o contraste da imagem. Regiões que antes estavam muito escuras ou muito claras foram redistribuídas, tornando os detalhes da imagem mais visíveis. No entanto, como a equalização foi realizada de maneira global, algumas regiões de contraste intermediário podem ter perdido sutileza.
+
+2. Equalização de Histograma usando OpenCV
+Descrição da Implementação:
+Na equalização de histograma usando OpenCV, utilizamos a função cv2.equalizeHist() diretamente, que realiza a equalização de histograma automaticamente. Esta função processa a imagem em escala de cinza e redistribui os valores de intensidade de forma a aumentar o contraste da imagem.
+
+Efeito na Imagem:
+O resultado da equalização com OpenCV foi bastante similar ao método manual, com uma grande melhoria no contraste da imagem. As áreas escuras tornaram-se mais brilhantes, revelando mais detalhes, enquanto as áreas mais claras foram suavizadas. O algoritmo automático da OpenCV é otimizado, portanto, o desempenho foi superior à abordagem manual.
+
+3. Equalização de Histograma usando Pillow
+Descrição da Implementação:
+Na equalização de histograma usando Pillow, a função ImageOps.equalize() foi utilizada para realizar o processamento. Como a Pillow trabalha diretamente com imagens em formato PIL, foi necessário converter a imagem para o modo 'L' (escala de cinza) antes de aplicar a equalização.
+
+Efeito na Imagem:
+A equalização usando Pillow também aumentou o contraste da imagem, mas com um comportamento ligeiramente diferente em relação às outras abordagens. O algoritmo da Pillow tende a ser mais conservador, mantendo mais suavidade em áreas intermediárias, o que pode ser desejável em certas aplicações onde contrastes excessivamente fortes podem prejudicar a interpretação visual.
+
+4. Comparação das Técnicas
+Equalização Manual:
+Vantagem: Controle detalhado sobre cada etapa do processo de equalização, sendo útil para experimentação e aprendizado sobre os fundamentos de processamento de imagens.
+Desvantagem: Menor eficiência e pode resultar em diferenças sutis em contraste quando comparado com algoritmos otimizados.
+OpenCV:
+Vantagem: Algoritmo eficiente e altamente otimizado para processamento rápido, proporcionando bons resultados com um impacto mínimo no desempenho.
+Desvantagem: Menos flexível em termos de ajustes manuais.
+Pillow:
+Vantagem: Simples de usar e integrado diretamente com objetos da biblioteca PIL, tornando a manipulação e o processamento de imagens conveniente.
+Desvantagem: O algoritmo pode não fornecer tanto contraste quanto as outras abordagens, o que pode ser uma limitação dependendo da aplicação.
+Conclusão
+A equalização de histograma mostrou-se uma técnica eficaz para melhorar o contraste de imagens, independentemente da abordagem utilizada. Cada método apresentou vantagens específicas em termos de controle, desempenho e resultado visual. A equalização manual permitiu maior controle sobre o processo, enquanto as bibliotecas como OpenCV e Pillow apresentaram implementações mais simples e eficientes. A escolha da técnica a ser utilizada depende dos requisitos específicos da aplicação, como a necessidade de maior controle sobre o processo ou maior eficiência.
+
+Efeitos Observados:
+A equalização manual ofereceu resultados previsíveis, mas exigiu maior esforço de implementação.
+A equalização com OpenCV foi a mais eficiente em termos de tempo e processamento, oferecendo contrastes mais definidos.
+A equalização com Pillow forneceu uma equalização mais suave e foi a mais fácil de implementar, mas com menor ganho de contraste em relação aos outros métodos.
